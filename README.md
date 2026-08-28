@@ -83,3 +83,9 @@ La preuve d’expérience est pour le moment une déclaration booléenne et aucu
 ## Licence
 
 MIT
+
+## Version officielle — direction visuelle
+
+La version officielle adopte une direction full black éditoriale : typographie large, accent lime, verre fumé, image héro cinématique, ticker animé, cartes réactives, header sticky translucide et révélations au scroll respectueuses de `prefers-reduced-motion`. L’asset `public/vixvods-hero.jpg` est utilisé comme visuel principal.
+
+La console Pro inclut désormais des statistiques, un filtrage des avis, la génération de brouillons de réponse et les actions de modération. La route protégée `PATCH /api/reviews/[id]` accepte `published`, `pending` ou `rejected`.
