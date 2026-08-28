@@ -1,11 +1,12 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from "next";
+import { companies } from "./lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://vixvods.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vixvods.com";
   return [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
-    { url: `${baseUrl}/faq`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/company/vixluxia-studio`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
-    { url: `${baseUrl}/company/antigravity-labs`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
+    { url: baseUrl, changeFrequency: "weekly", priority: 1 },
+    { url: `${baseUrl}/faq`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/dashboard`, changeFrequency: "monthly", priority: 0.2 },
+    ...companies.map((company) => ({ url: `${baseUrl}/company/${company.slug}`, changeFrequency: "daily" as const, priority: 0.9 })),
   ];
 }
